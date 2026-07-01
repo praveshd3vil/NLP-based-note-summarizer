@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Note Summarizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-inner">
+      <h1 class="app-title">Note Summarizer</h1>
+    </div>
+  </header>
+
+  <main class="layout">
+
+    <!-- left panel -->
+    <section class="panel panel-input" aria-labelledby="notes-heading">
+      <div class="panel-header">
+        <h2 id="notes-heading">Your Notes</h2>
+        <span class="panel-subtext">Paste or type the text you want summarized</span>
+      </div>
+
+      <textarea
+        id="notesInput"
+        class="notes-textarea"
+        spellcheck="true"
+      ></textarea>
+
+      <div class="input-footer">
+        <span id="charCount" class="char-count">0 characters</span>
+        <button id="summarizeBtn" class="btn-primary" type="button">
+          <span class="btn-label">Summarize</span>
+        </button>
+      </div>
+    </section>
+
+    <!--  right panel -->
+    <section class="panel panel-output" aria-labelledby="summary-heading">
+      <div class="panel-header">
+        <h2 id="summary-heading">Summary</h2>
+        <span class="panel-subtext">Summarized Notes</span>
+      </div>
+
+      <div id="outputArea" class="output-area">
+
+        <div id="emptyState" class="state-block empty-state">
+          <span class="state-mark" aria-hidden="true"></span>
+          <p>Nothing summarized yet. Add some notes on the left and click
+            <strong>Summarize</strong>.</p>
+        </div>
+
+        <!-- loading  -->
+        <div id="loadingState" class="state-block loading-state hidden">
+          <div class="spinner" aria-hidden="true"></div>
+          <p>Reading through your notes…</p>
+        </div>
+
+        <!-- error showing if any -->
+        <div id="errorState" class="state-block error-state hidden">
+          <span class="state-mark" aria-hidden="true">!</span>
+          <p id="errorMessage">Something went wrong while summarizing.</p>
+        </div>
+
+        <!-- final summary -->
+        <div id="resultState" class="state-block result-state hidden">
+          <p id="summaryText" class="summary-text"></p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p>Note Summarizer</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
